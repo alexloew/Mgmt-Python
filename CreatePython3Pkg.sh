@@ -66,7 +66,7 @@ loggedInUser=$(/usr/sbin/scutil <<< "show State:/Users/ConsoleUser" | /usr/bin/a
 tmpDir="/private/tmp/RP"
 repoName="relocatable-python"
 pythonVersion="3.8.3"
-reloPythonURL="https://github.com/gregneagle/$repoName/archive/master.zip"
+reloPythonURL="https://github.com/gregneagle/$repoName/archive/main.zip"
 reloPythonZip="$tmpDir/reloPython.zip"
 reloPythonPkgRoot="$tmpDir/pkgRoot"
 reloPythonPkgScript="$tmpDir/scripts"
@@ -172,10 +172,10 @@ echo "Downloading Relocatable Python script from $reloPythonURL"
 # Make relocatable python framework
 if [[ $reqChoice == "minimal" ]]; then
     echo "$reqMinimal" > "$tmpDir/reqs.txt"
-    "$tmpDir/$repoName-master/make_relocatable_python_framework.py" --python-version "$pythonVersion" --destination "$reloPythonPkgRoot/frameworks" --pip-requirements="$tmpDir/reqs.txt"
+    "$tmpDir/$repoName-main/make_relocatable_python_framework.py" --python-version "$pythonVersion" --destination "$reloPythonPkgRoot/frameworks" --pip-requirements="$tmpDir/reqs.txt"
 elif [[ $reqChoice == "recommended" ]]; then
     echo "$reqRecommended" > "$tmpDir/reqs.txt"
-    "$tmpDir/$repoName-master/make_relocatable_python_framework.py" --python-version "$pythonVersion" --destination "$reloPythonPkgRoot/frameworks" --pip-requirements="$tmpDir/reqs.txt"
+    "$tmpDir/$repoName-main/make_relocatable_python_framework.py" --python-version "$pythonVersion" --destination "$reloPythonPkgRoot/frameworks" --pip-requirements="$tmpDir/reqs.txt"
 fi
 
 # Exit if relocatable python could not be created
